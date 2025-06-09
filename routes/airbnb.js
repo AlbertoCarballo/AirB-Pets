@@ -36,17 +36,6 @@ router.get('/:id', async (req, res) => {
 });
 
 
-// Obtener un lugar por ID
-router.get('/:id', async (req, res) => {
-  try {
-    const lugar = await Airbnb.findById(req.params.id).populate('usuario');
-    if (!lugar) return res.status(404).json({ error: 'Lugar no encontrado' });
-    res.json(lugar);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
-
 // Actualizar un lugar
 router.put('/:id', async (req, res) => {
   try {
